@@ -1,0 +1,8 @@
+- name: ping
+  ansible.builtin.ping:
+  register: ping_result  # Register the result of the ping task
+
+- name: Display OS information of reachable hosts
+  debug:
+    msg: "OS Name: {{ ansible_os_family }} {{ ansible_distribution }}"
+  when: ping_result.ping == "pong"  # Only display facts for reachable hosts

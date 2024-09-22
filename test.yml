@@ -1,0 +1,11 @@
+---
+- name: Check directory existence
+  hosts: localhost
+  tasks:
+    - name: include ping task
+      ansible.builtin.include_tasks:
+        file: tasks/common/ping.yml
+
+    - name: Include task list in play
+      ansible.builtin.include_tasks:
+        file: tasks/main.yml
